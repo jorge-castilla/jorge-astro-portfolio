@@ -1,0 +1,97 @@
+---
+import { Image } from "astro:assets";
+import FlavorTrail from "../assets/img/flavor-trail.jpg";
+import { Icon } from "astro-icon/components";
+import { getImage } from "astro:assets";
+
+const {
+  reverse = true,
+  name = "My Wonderful Project",
+  description = "Insert a description for your project",
+  src = FlavorTrail,
+  href = "/",
+  technologies = ["Vue", "Quasar"],
+  githubUrl = "/",
+} = Astro.props;
+
+const optimizedBackgroundImage = await getImage({ src: src });
+---
+
+<article
+  class:list={`grid lg:grid-cols-2 bg-slate-950 shadow relative p-4 max-w-[450px] lg:max-w-full`}
+>
+  <div
+    class:list={[
+      "flex flex-col mt-8  z-10",
+      { "lg:-ml-8 order-2 lg:items-end": reverse },
+    ]}
+  >
+    <p class="font-fira text-teal-400 text-sm mb-2">Proyecto Destacado</p>
+    <a
+      href={href}
+      target="_blank"
+      class="text-2xl mb-6 text-slate-50 font-bold hover:text-pink-500 transition duration-200 inline-flex"
+      >{name}</a
+    >
+    <p
+      class:list={[
+        "lg:bg-teal-900 lg:px-6 py-3 rounded-md mb-3 lg:hover:-translate-y-1 lg:transition lg:duration-200 lg:shadow",
+        {
+          "lg:hover:translate-x-1": !reverse,
+          "lg:hover:-translate-x-1": reverse,
+        },
+      ]}
+    >
+      {description}
+    </p>
+
+    <ul class="flex gap-4 font-fira mb-4">
+      {
+        technologies.map((technology: string) => {
+          return <li class="text-sm text-slate-300">{technology}</li>;
+        })
+      }
+    </ul>
+    <div class="flex gap-2">
+      <a href={githubUrl}>
+        <Icon
+          class="w-10 h-10 text-slate-500 hover:text-teal-400"
+          name="mdi:github"
+        />
+      </a>
+      <a href={href}>
+        <Icon
+          class="w-10 h-10 text-slate-500 hover:text-teal-400"
+          name="mdi:link"
+        />
+      </a>
+    </div>
+  </div>
+  <a
+    class:list={[
+      "lg:w-full max-w-[450px]  bg-teal-500 aspect-[4/3] my-auto rounded-md absolute opacity-10 top-0 left-0  lg:opacity-100 lg:relative lg:flex",
+      { "lg:-ml-8": !reverse },
+    ]}
+    href={href}
+  >
+    <Image
+      src={src}
+      alt="Menú de Restaurant"
+      class:list={["project-image rounded-md"]}
+      loading="lazy"
+    />
+  </a>
+</article>
+<style>
+  @media (min-width: 1024px) {
+    article:hover .project-image {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+  }
+  .project-image {
+    filter: grayscale(50%);
+    opacity: 0.5;
+    transition: all 0.3s ease-in-out;
+  }
+</style>

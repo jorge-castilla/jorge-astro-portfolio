@@ -1,0 +1,23 @@
+---
+const { title, number } = Astro.props;
+---
+
+<h2
+  class="text-3xl md:text-4xl font-bold mb-8 section-title relative text-slate-100"
+>
+  <span class="text-teal-400 font-fira text-lg">{number}.</span>
+  <span> {title}</span>
+</h2>
+
+<style>
+  .section-title::after {
+    content: "";
+    position: absolute;
+    width: 240px;
+    height: 2px;
+    background-color: #2dd4bf;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 20px;
+  }
+</style>

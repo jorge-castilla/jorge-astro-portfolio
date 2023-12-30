@@ -1,0 +1,46 @@
+---
+import Contact from "../components/Contact.astro";
+import AboutMe from "../components/AboutMe.astro";
+import Projects from "../components/Projects.astro";
+import Sidebar from "../components/Sidebar.astro";
+import Button from "../components/Button.astro";
+import "@fontsource-variable/inter";
+import "@fontsource-variable/caveat";
+import "@fontsource-variable/fira-code";
+import Landing from "../components/Landing.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Portfolio Jorge</title>
+  </head>
+  <body class="selection:bg-teal-600 bg-slate-950">
+    <Sidebar />
+    <main class="flex flex-col md:ml-48">
+      <Landing />
+      <AboutMe />
+      <Projects />
+      <Contact />
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    font: Helvetica;
+    color-scheme: light dark;
+  }
+  body {
+    font-family: "Inter Variable", sans-serif;
+  }
+  .font-caveat {
+    font-family: "Caveat Variable", sans-serif;
+  }
+  .font-fira {
+    font-family: "Fira Code Variable", sans-serif;
+  }
+</style>

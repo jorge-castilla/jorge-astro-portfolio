@@ -1,0 +1,19 @@
+---
+const { text } = Astro.props;
+---
+
+<button
+  class="border text-lg md:text-xl border-teal-400 text-teal-400 px-8 py-4"
+  >{text}</button
+>
+
+<style scoped>
+  button {
+    transition: all 0.1s ease-in-out;
+    border-radius: 5px;
+  }
+  button:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0px 0px rgb(45 212 191);
+  }
+</style>

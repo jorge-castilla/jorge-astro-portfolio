@@ -1,0 +1,46 @@
+---
+import SectionTitle from "./SectionTitle.astro";
+import ProjectCard from "./ProjectCard.astro";
+import FlavorTrail from "../assets/img/flavor-trail.jpg";
+import Egx from "../assets/img/egx-ingenieria.jpg";
+
+const myProjects = [
+  {
+    name: "Flavor Trail Menú",
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero ducimus similique in sint veritatis reprehenderit qui suscipit facere deleniti praesentium.",
+    src: FlavorTrail,
+    href: "http://24.199.98.169/#/",
+    technologies: ["Vue", "Quasar", "Pinia", "Laravel"],
+    githubUrl: "/",
+  },
+  {
+    name: "Egx Ingeniería",
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero ducimus similique in sint veritatis reprehenderit qui suscipit facere deleniti praesentium.",
+    src: Egx,
+    href: "http://www.egxingenieria.cl",
+    technologies: ["Astro", "Tailwind"],
+    githubUrl: "/",
+  },
+];
+---
+
+<section class="min-h-[100vh] px-8 py-24 max-w-5xl xl:ml-24 w-full">
+  <SectionTitle title="Proyectos" number="02" />
+  <div class="flex flex-col gap-24 lg:gap-40 mt-16 lg:items-start items-center">
+    {
+      myProjects.map((project, index) => (
+        <ProjectCard
+          name={project.name}
+          description={project.description}
+          src={project.src}
+          href={project.href}
+          reverse={index % 2 === 0}
+          technologies={project.technologies}
+          githubUrl={project.githubUrl}
+        />
+      ))
+    }
+  </div>
+</section>

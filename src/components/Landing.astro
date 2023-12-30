@@ -1,0 +1,140 @@
+---
+import Button from "../components/Button.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<section
+  id="Inicio"
+  class="relative min-h-[100vh] flex flex-col justify-center pb-24 pl-4 md:pl-8 overflow-x-hidden"
+>
+  <div class="font-caveat text-lg text-teal-500 second-load-animation">
+    &lt; html &gt;
+  </div>
+  <div
+    class="font-caveat text-lg text-teal-500 ml-4 mb-4 second-load-animation"
+  >
+    &lt; body &gt;
+  </div>
+  <div
+    class="font-caveat text-lg text-teal-500 ml-6 mb-2 second-load-animation"
+  >
+    &lt; h1 &gt;
+  </div>
+  <div
+    class="flex flex-col gap-7 text-teal-50 text-4xl md:text-5xl lg:text-7xl font-bold text-container"
+  >
+    <h1 class="ml-10 from-left-animation">Hola,</h1>
+    <h1 class="ml-10 from-left-animation">
+      soy <span class="special-letter text-5xl md:text-6xl lg:text-8xl">J</span
+      >orge,
+    </h1>
+    <div class="ml-10">
+      <div class="flex md:flex-row md:items-end flex-col">
+        <h1 class="from-left-animation">desarrollador web</h1>
+        <div
+          class="font-caveat text-lg text-teal-500 md:ml-4 text-nowrap mt-2 md:mt-0 second-load-animation"
+        >
+          &lt; /h1 &gt;
+        </div>
+      </div>
+      <div class="flex flex-col">
+        <div
+          class="text-lg text-teal-500 font-caveat mb-2 second-load-animation"
+        >
+          &lt; p &gt;
+        </div>
+        <h2
+          class="text-slate-500 text-lg md:text-2xl -mt-2 from-left-animation font-fira"
+        >
+          Full Stack Developer
+        </h2>
+        <div class="text-lg text-teal-500 font-caveat second-load-animation">
+          &lt; /p &gt;
+        </div>
+      </div>
+      <div class="mt-4 second-load-animation">
+        <Button text="¡Contáctame!" />
+      </div>
+    </div>
+  </div>
+  <div
+    class="absolute -left-12 bottom-24 rotate-90 md:text-lg text-slate-500 scroll-down-animation"
+  >
+    scroll down
+    <Icon
+      class="w-6 h-6 text-slate-500 hover:text-teal-400 inline ml-2"
+      name="mdi:arrow-right"
+    />
+  </div>
+  <div
+    class="absolute -right-10 bottom-24 rotate-90 md:text-lg text-slate-500 scroll-down-animation"
+  >
+    scroll down<Icon
+      class="w-6 h-6 text-slate-500 hover:text-teal-400 inline ml-2"
+      name="mdi:arrow-right"
+    />
+  </div>
+</section>
+<style>
+  .from-left-animation {
+    animation: 0.75s linear 0s normal firstLoad;
+  }
+  .second-load-animation {
+    animation: 1.5s linear 0s normal secondLoad;
+  }
+  .scroll-down-animation {
+    animation: 3s linear 0s normal scrollDown;
+  }
+
+  @keyframes scrollDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px) rotate(90deg);
+    }
+    60% {
+      opacity: 0;
+      transform: translateY(-5px) rotate(90deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px) rotate(90deg);
+    }
+  }
+
+  @keyframes firstLoad {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes secondLoad {
+    0% {
+      opacity: 0;
+      transform: translateX(5px);
+    }
+    50% {
+      opacity: 0;
+      transform: translateX(5px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+  .special-letter {
+    color: #db2777;
+    position: relative;
+  }
+  .special-letter::before {
+    content: "J";
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -15%;
+    color: #2dd4bf;
+  }
+</style>
