@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import MyFace from "../assets/img/my-face.jpeg";
+// import MyFace from "";
 import SectionTitle from "./SectionTitle.astro";
 const paragraphs = ["", "", ""];
 const technologies = [
@@ -38,7 +38,13 @@ const technologies = [
       </p>
     </div>
     <div class="image-container relative w-[300px] aspect-square mx-auto mb-8">
-      <Image src={MyFace} alt="Foto de Jorge" width={300} class="face-image" />
+      <Image
+        src="/img/my-face.jpeg"
+        alt="Foto de Jorge"
+        width={300}
+        height={300}
+        class="face-image"
+      />
     </div>
     <div>
       <p class="mb-2">

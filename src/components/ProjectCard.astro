@@ -1,24 +1,20 @@
 ---
 import { Image } from "astro:assets";
-import FlavorTrail from "../assets/img/flavor-trail.jpg";
 import { Icon } from "astro-icon/components";
-import { getImage } from "astro:assets";
 
 const {
   reverse = true,
   name = "My Wonderful Project",
   description = "Insert a description for your project",
-  src = FlavorTrail,
+  src = "/img/flavor-trail.jpg",
   href = "/",
   technologies = ["Vue", "Quasar"],
   githubUrl = "/",
 } = Astro.props;
-
-const optimizedBackgroundImage = await getImage({ src: src });
 ---
 
 <article
-  class:list={`grid lg:grid-cols-2 bg-slate-950 shadow relative p-4 max-w-[450px] lg:max-w-full`}
+  class:list={`grid lg:grid-cols-2 relative p-4 max-w-[500px] lg:max-w-full`}
 >
   <div
     class:list={[
@@ -69,7 +65,7 @@ const optimizedBackgroundImage = await getImage({ src: src });
   </div>
   <a
     class:list={[
-      "lg:w-full max-w-[450px]  bg-teal-500 aspect-[4/3] my-auto rounded-md absolute opacity-10 top-0 left-0  lg:opacity-100 lg:relative lg:flex",
+      "lg:w-full bg-teal-500 aspect-[4/3] my-auto rounded-md absolute opacity-10 top-0 left-0  lg:opacity-100 lg:relative lg:flex",
       { "lg:-ml-8": !reverse },
     ]}
     href={href}
@@ -79,6 +75,8 @@ const optimizedBackgroundImage = await getImage({ src: src });
       alt="Menú de Restaurant"
       class:list={["project-image rounded-md"]}
       loading="lazy"
+      width={800}
+      height={600}
     />
   </a>
 </article>
