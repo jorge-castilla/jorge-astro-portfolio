@@ -1,7 +1,60 @@
 ---
 import SectionTitle from "./SectionTitle.astro";
+import Button from "./Button.astro";
+import { Image } from "astro:assets";
 ---
 
 <section class="min-h-[100vh] px-8 py-48 max-w-5xl mx-auto w-full">
   <SectionTitle title="Contacto" number="03" />
+  <div
+    class="grid grid-cols-3 mt-20 border border-teal-400 max-w-6xl rounded-lg bg-teal-950 bg-opacity-30"
+  >
+    <div
+      class="col-span-1 bg-[url('img/contact-image.jpg')] opacity-90 rounded-l-md"
+    >
+    </div>
+    <div class="col-span-2 px-10 py-16">
+      <p class="text-md text-teal-400 mb-1">¿Te interesa mi trabajo?</p>
+      <h1 class="text-3xl mb-6 ml-2">¡Hablemos!</h1>
+      <form action="" class="flex flex-col">
+        <div class="flex gap-3">
+          <label class="flex flex-col gap-2 mb-4 w-full">
+            Nombre:
+            <input
+              type="text"
+              class="border border-teal-400 rounded-md p-2"
+              placeholder="Jhon Doe"
+            />
+          </label>
+          <label class="flex flex-col gap-2 mb-4 w-full">
+            Asunto:
+            <input
+              type="text"
+              class="border border-teal-400 rounded-md p-2"
+              placeholder="Contacto"
+            />
+          </label>
+        </div>
+        <label class="flex flex-col gap-2 mb-4">
+          Correo:
+          <input
+            type="text"
+            class="border border-teal-400 rounded-md p-2"
+            placeholder="tu@empresa.com"
+          />
+        </label>
+
+        <label class="flex flex-col gap-2 mb-4">
+          Mensaje:
+          <textarea
+            rows="4"
+            class="border border-teal-400 rounded-md p-2"
+            placeholder="Tu mensaje.."></textarea>
+        </label>
+        <div class="mt-4">
+          <Button text="Enviar Mensaje" />
+        </div>
+      </form>
+    </div>
+  </div>
 </section>
