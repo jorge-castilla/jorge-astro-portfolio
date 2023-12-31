@@ -21,7 +21,7 @@ import ScrolldownButton from "../components/ScrolldownButton.astro";
     &lt; h1 &gt;
   </div>
   <div
-    class="flex flex-col gap-4  text-teal-50 text-5xl  lg:text-7xl font-bold text-container"
+    class="flex flex-col gap-4 text-teal-50 text-5xl lg:text-7xl font-bold text-container"
   >
     <h1 class="ml-10 from-left-animation">Hola,</h1>
     <h1 class="ml-10 from-left-animation">
@@ -48,7 +48,9 @@ import ScrolldownButton from "../components/ScrolldownButton.astro";
         >
           Full Stack Developer
         </h2>
-        <div class="text-2xl text-teal-600 font-italianno second-load-animation">
+        <div
+          class="text-2xl text-teal-600 font-italianno second-load-animation"
+        >
           &lt; /p &gt;
         </div>
       </div>
@@ -114,8 +116,9 @@ import ScrolldownButton from "../components/ScrolldownButton.astro";
   .special-letter {
     color: #db2777;
     position: relative;
+    z-index: 10;
   }
-  .special-letter::before {
+  .special-letter::after {
     content: "J";
     position: absolute;
     z-index: -1;
