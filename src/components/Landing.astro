@@ -1,6 +1,6 @@
 ---
 import Button from "../components/Button.astro";
-import { Icon } from "astro-icon/components";
+import ScrolldownButton from "../components/ScrolldownButton.astro";
 ---
 
 <section
@@ -57,23 +57,9 @@ import { Icon } from "astro-icon/components";
       </div>
     </div>
   </div>
-  <div
-    class="absolute -left-12 bottom-24 rotate-90 md:text-lg text-slate-500 scroll-down-animation"
-  >
-    scroll down
-    <Icon
-      class="w-6 h-6 text-slate-500 hover:text-teal-400 inline ml-2"
-      name="mdi:arrow-right"
-    />
-  </div>
-  <div
-    class="absolute -right-10 bottom-24 rotate-90 md:text-lg text-slate-500 scroll-down-animation"
-  >
-    scroll down<Icon
-      class="w-6 h-6 text-slate-500 hover:text-teal-400 inline ml-2"
-      name="mdi:arrow-right"
-    />
-  </div>
+<ScrolldownButton left={true} />
+<ScrolldownButton left={false} />
+
 </section>
 <style>
   .from-left-animation {

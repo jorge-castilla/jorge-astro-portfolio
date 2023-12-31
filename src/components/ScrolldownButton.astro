@@ -1,0 +1,50 @@
+---
+const { left = false } = Astro.props;
+import { Icon } from "astro-icon/components";
+---
+
+<script>
+  const scrollToAbout = () => {
+    const about = document.getElementById("About");
+    about?.scrollIntoView({ behavior: "smooth" });
+  };
+  const buttons = document.querySelectorAll(".scrolldown-button");
+  buttons?.forEach((button) => {
+    button?.addEventListener("click", scrollToAbout);
+  });
+</script>
+
+<button
+  class:list={[
+    "group scrolldown-button absolute bottom-24 rotate-90 md:text-lg text-slate-500 scroll-down-animation hover:text-slate-300 transition duration-200 ease-in-out",
+    ,
+    { "-left-8": left, "-right-8": !left },
+  ]}
+>
+  scroll down
+  <Icon
+    class:list={["w-6 h-6 text-slate-500 inline ml-2 transition duration-200 ease-in-out", { "group-hover:text-pink-400": !left, "group-hover:text-teal-400": left },]}
+    name="mdi:arrow-right"
+  />
+</button>
+
+<style scoped>
+  .scroll-down-animation {
+    animation: 3s linear 0s normal scrollDown;
+  }
+
+  @keyframes scrollDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px) rotate(90deg);
+    }
+    60% {
+      opacity: 0;
+      transform: translateY(-5px) rotate(90deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px) rotate(90deg);
+    }
+  }
+</style>
