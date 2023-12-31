@@ -9,11 +9,11 @@ const sections = [
 
 <script>
   // Función para determinar la sección más cercana al centro de la pantalla
-  function getNearestSection(entries) {
-    let nearest = null;
+  function getNearestSection(entries: any) {
+    let nearest = { id: null};
     let nearestDistance = Infinity;
 
-    entries.forEach((entry) => {
+    entries.forEach((entry: any) => {
       // Calcula la distancia al centro
       const distance = Math.abs(entry.boundingClientRect.y);
 
@@ -27,7 +27,7 @@ const sections = [
   }
 
   // Función para activar la sección correspondiente en la barra lateral
-  function activateSidebarLink(sectionId) {
+  function activateSidebarLink(sectionId: any) {
     document.querySelectorAll(".sidebar-link").forEach((link) => {
       link.classList.remove("text-teal-400");
       if (link.getAttribute("href") === `#${sectionId}`) {
@@ -43,12 +43,15 @@ const sections = [
     threshold: 0.5, // 50% de la sección debe estar visible
   };
 
+  interface section {
+    id: string | null;
+  }
   // Crear el Intersection Observer
   const observer = new IntersectionObserver((entries, observer) => {
     // Encuentra la sección más cercana al centro de la pantalla
-    const nearestSection = getNearestSection(entries);
+    const nearestSection: section = getNearestSection(entries);
 
-    if (nearestSection) {
+    if (nearestSection.id) {
       activateSidebarLink(nearestSection.id);
     }
   }, options);
