@@ -19,24 +19,35 @@ const technologies = [
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-6 text-slate-400">
     <div>
       <p class="mb-4 is-hidden">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum
-        officia fugiat tenetur, impedit saepe odio maxime facere velit iste ipsa
-        sequi ullam officiis porro, voluptate temporibus illo cum itaque
-        pariatur sit eveniet! Animi ut blanditiis enim quaerat doloremque
+        Mi nombre es <span class="underline decoration-teal-400">
+          Jorge Castilla</span
+        >, soy desarrollador web y me motiva el desafío de convertir ideas en
+        <span class="text-teal-400">productos digitales</span>. Me gusta seguir de cerca las nuevas tendencias en programación e inteligencia artifial.
       </p>
       <p class="mb-4 is-hidden">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum
-        officia fugiat tenetur, impedit saepe odio maxime facere velit iste ipsa
-        sequi ullam officiis porro, voluptate temporibus illo cum itaque
-        pariatur sit eveniet! Animi ut blanditiis.
+        Me titulé de la carrera de Analista Programador en Inacap, aunque la
+        mayoría de mi conocimiento lo he obtenido de internet y del trabajo con
+        mis compañeros de equipo.
       </p>
-      <p class="mb-4 is-hidden">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum
-        officia fugiat tenetur, impedit saepe odio maxime facere velit iste
-        ipsa.
+      <p class="mb-5 is-hidden">
+        Actualmente trabajo en el departamento de Transformación Digital en <a
+          href="https://www.ecomac.cl"
+          target="_blank">Ecomac</a
+        >
+         donde desarrollamos aplicaciones web para la empresa y sus clientes.
       </p>
+      <div class="is-hidden">
+        <p class="mb-2">
+          Aquí hay algunas tecnologías con las que he trabajado últimamente:
+        </p>
+        <ul class="list-disc marker:text-teal-400 grid grid-cols-2 list-inside">
+          {technologies.map((technology) => <li class="mb-1">{technology}</li>)}
+        </ul>
+      </div>
     </div>
-    <div class="image-container relative w-[300px] aspect-square mx-auto mb-8  is-hidden">
+    <div
+      class="image-container relative w-[300px] aspect-square mx-auto mb-8 is-hidden"
+    >
       <Image
         src="/img/my-face.jpeg"
         alt="Foto de Jorge"
@@ -44,14 +55,6 @@ const technologies = [
         height={300}
         class="face-image"
       />
-    </div>
-    <div class="is-hidden">
-      <p class="mb-2">
-        Aquí hay algunas tecnologías con las que he trabajado últimamente:
-      </p>
-      <ul class="list-disc marker:text-teal-400 grid grid-cols-2 list-inside">
-        {technologies.map((technology) => <li class="mb-1">{technology}</li>)}
-      </ul>
     </div>
   </div>
 </section>
