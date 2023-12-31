@@ -29,6 +29,9 @@ dependencies:
   '@fontsource-variable/inter':
     specifier: ^5.0.16
     version: 5.0.16
+  '@fontsource/italianno':
+    specifier: ^5.0.18
+    version: 5.0.18
   '@iconify-json/mdi':
     specifier: ^1.1.63
     version: 1.1.63
@@ -814,6 +817,10 @@ packages:
 
   /@fontsource-variable/inter@5.0.16:
     resolution: {integrity: sha512-k+BUNqksTL+AN+o+OV7ILeiE9B5M5X+/jA7LWvCwjbV9ovXTqZyKRhA/x7uYv/ml8WQ0XNLBM7cRFIx4jW0/hg==}
+    dev: false
+
+  /@fontsource/italianno@5.0.18:
+    resolution: {integrity: sha512-zIjeSWlwortKJZkWrtPUCNpGkf4JCDHq+gevfuc7dy0uTOrOD20r9BF/1q46rjqesfWvU8mK/GZpXlvfwXFgwQ==}
     dev: false
 
   /@iconify-json/mdi@1.1.63:

@@ -18,6 +18,7 @@
     "@fontsource-variable/caveat": "^5.0.16",
     "@fontsource-variable/fira-code": "^5.0.16",
     "@fontsource-variable/inter": "^5.0.16",
+    "@fontsource/italianno": "^5.0.18",
     "@iconify-json/mdi": "^1.1.63",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
