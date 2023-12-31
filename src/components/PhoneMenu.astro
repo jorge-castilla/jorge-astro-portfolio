@@ -1,0 +1,174 @@
+---
+import { Icon } from "astro-icon/components";
+const sections = [
+  { name: "Sobre mí", href: "#About" },
+  { name: "Proyectos", href: "#Projects" },
+  { name: "Contacto", href: "#Contact" },
+];
+---
+
+<script>
+  const button = document.querySelector(".burger-button");
+  const nav = document.querySelector(".mobile-navbar");
+  const navIcon = document.querySelector("#nav-icon3");
+  button?.addEventListener("click", () => {
+    nav?.classList.toggle("hidden-right");
+    navIcon?.classList.toggle("open");
+  });
+
+  // Función para determinar la sección más cercana al centro de la pantalla
+  function getNearestSection(entries) {
+    let nearest = null;
+    let nearestDistance = Infinity;
+
+    entries.forEach((entry) => {
+      // Calcula la distancia al centro
+      const distance = Math.abs(entry.boundingClientRect.y);
+
+      if (distance < nearestDistance) {
+        nearest = entry.target;
+        nearestDistance = distance;
+      }
+    });
+
+    return nearest;
+  }
+
+  // Función para activar la sección correspondiente en la barra lateral
+  function activateSidebarLink(sectionId) {
+    document.querySelectorAll(".mobile-link").forEach((link) => {
+      link.classList.remove("text-teal-400");
+      if (link.getAttribute("href") === `#${sectionId}`) {
+        link.classList.add("text-teal-400");
+      }
+    });
+  }
+
+  // Opciones para el Intersection Observer
+  const options = {
+    root: null, // el viewport
+    rootMargin: "0px",
+    threshold: 0.5, // 50% de la sección debe estar visible
+  };
+
+  // Crear el Intersection Observer
+  const observer = new IntersectionObserver((entries, observer) => {
+    // Encuentra la sección más cercana al centro de la pantalla
+    const nearestSection = getNearestSection(entries);
+
+    if (nearestSection) {
+      activateSidebarLink(nearestSection.id);
+    }
+  }, options);
+
+  // Observa cada sección
+  document.querySelectorAll("section").forEach((section) => {
+    observer.observe(section);
+  });
+</script>
+
+<button class="fixed top-12 right-10 z-20 burger-button md:hidden">
+  <div id="nav-icon3">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</button>
+<nav
+  class="mobile-navbar md:hidden hidden-right fixed z-10 flex flex-col gap-10 justify-center items-center h-full bg-slate-800 right-0 w-[600px] max-w-[80%] text-xl font-fira"
+>
+  {
+    sections.map((section, index) => {
+      return (
+        <a href={section.href} class="flex flex-col text-center mobile-link">
+          {" "}
+          <div class="text-teal-500 font-fira text-sm">0{index + 1}.</div>
+          {section.name}
+        </a>
+      );
+    })
+  }
+</nav>
+<style>
+  .mobile-navbar {
+    transition: all 0.3s ease-in-out;
+  }
+  .mobile-navbar.hidden-right {
+    transform: translateX(100%);
+  }
+  #nav-icon3 {
+    scale: 0.65;
+    width: 60px;
+    height: 45px;
+    position: relative;
+    margin: 50px auto;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+  }
+
+  #nav-icon3 span {
+    display: block;
+    position: absolute;
+    height: 9px;
+    width: 100%;
+    background: #94a3b8;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+    transition: 0.25s ease-in-out;
+  }
+
+  #nav-icon3 span:nth-child(1) {
+    top: 0px;
+  }
+
+  #nav-icon3 span:nth-child(2),
+  #nav-icon3 span:nth-child(3) {
+    top: 18px;
+  }
+
+  #nav-icon3 span:nth-child(4) {
+    top: 36px;
+  }
+
+  #nav-icon3.open span:nth-child(1) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+  }
+
+  #nav-icon3.open span:nth-child(2) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  #nav-icon3.open span:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  #nav-icon3.open span:nth-child(4) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+  }
+</style>
