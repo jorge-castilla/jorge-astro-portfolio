@@ -67,7 +67,7 @@ const sections = [
   });
 </script>
 
-<button class="fixed top-12 right-10 z-20 burger-button md:hidden">
+<button class="fixed top-14 right-10 z-20 burger-button md:hidden">
   <div id="nav-icon3">
     <span></span>
     <span></span>
@@ -89,6 +89,29 @@ const sections = [
       );
     })
   }
+  <div class="flex gap-3 mt-4">
+    <a
+      href="https://www.linkedin.com/in/jorge-ignacio-castilla-gallardo-1b0095199/"
+      target="_blank"
+    >
+      <Icon
+        class="w-10 h-10 text-slate-500 hover:text-teal-400"
+        name="mdi:linkedin"
+      />
+    </a>
+    <a href="https://github.com/jorge-castilla" target="_blank">
+      <Icon
+        class="w-10 h-10 text-slate-500 hover:text-teal-400"
+        name="mdi:github"
+      />
+    </a>
+    <a href="/cv-jorge-castilla.pdf" target="_blank">
+      <Icon
+        class="w-10 h-10 text-slate-500 hover:text-teal-400"
+        name="mdi:file-document-outline"
+      />
+    </a>
+  </div>
 </nav>
 <style>
   .mobile-navbar {
@@ -102,7 +125,6 @@ const sections = [
     width: 60px;
     height: 45px;
     position: relative;
-    margin: 50px auto;
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -o-transform: rotate(0deg);
