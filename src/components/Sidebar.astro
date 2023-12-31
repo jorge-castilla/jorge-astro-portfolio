@@ -1,11 +1,63 @@
 ---
 import { Icon } from "astro-icon/components";
 const sections = [
-  { name: "Sobre mí", href: "#about" },
-  { name: "Proyectos", href: "#projects" },
-  { name: "Contacto", href: "#contact" },
+  { name: "Sobre mí", href: "#About" },
+  { name: "Proyectos", href: "#Projects" },
+  { name: "Contacto", href: "#Contact" },
 ];
 ---
+
+<script>
+  // Función para determinar la sección más cercana al centro de la pantalla
+  function getNearestSection(entries) {
+    let nearest = null;
+    let nearestDistance = Infinity;
+
+    entries.forEach((entry) => {
+      // Calcula la distancia al centro
+      const distance = Math.abs(entry.boundingClientRect.y);
+
+      if (distance < nearestDistance) {
+        nearest = entry.target;
+        nearestDistance = distance;
+      }
+    });
+
+    return nearest;
+  }
+
+  // Función para activar la sección correspondiente en la barra lateral
+  function activateSidebarLink(sectionId) {
+    document.querySelectorAll(".sidebar-link").forEach((link) => {
+      link.classList.remove("text-teal-400");
+      if (link.getAttribute("href") === `#${sectionId}`) {
+        link.classList.add("text-teal-400");
+      }
+    });
+  }
+
+  // Opciones para el Intersection Observer
+  const options = {
+    root: null, // el viewport
+    rootMargin: "0px",
+    threshold: 0.5, // 50% de la sección debe estar visible
+  };
+
+  // Crear el Intersection Observer
+  const observer = new IntersectionObserver((entries, observer) => {
+    // Encuentra la sección más cercana al centro de la pantalla
+    const nearestSection = getNearestSection(entries);
+
+    if (nearestSection) {
+      activateSidebarLink(nearestSection.id);
+    }
+  }, options);
+
+  // Observa cada sección
+  document.querySelectorAll("section").forEach((section) => {
+    observer.observe(section);
+  });
+</script>
 
 <header
   class="bg-[#050c13] w-48 h-[100vh] fixed left-0 top-0 flex-col hidden md:flex"
@@ -21,8 +73,8 @@ const sections = [
     {
       sections.map((section, index) => {
         return (
-          <a href={section.href}>
-            <span class="text-teal-400 font-fira text-sm">0{index + 1}.</span>{" "}
+          <a href={section.href} class="sidebar-link">
+            <span class="text-teal-500 font-fira text-sm">0{index + 1}.</span>{" "}
             {section.name}
           </a>
         );

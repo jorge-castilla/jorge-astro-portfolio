@@ -9,7 +9,31 @@ import "@fontsource-variable/fira-code";
 import Landing from "../components/Landing.astro";
 ---
 
-<html lang="en">
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove("is-hidden");
+            entry.target.classList.add("animated");
+            observer.unobserve(entry.target); // Para no animar de nuevo al hacer scroll
+          }
+        });
+      },
+      {
+        root: null,
+        threshold: 0.1, // El porcentaje del target que debe estar visible para activar la animación
+      },
+    );
+
+    // Observa los elementos con la clase '.hidden'
+    document.querySelectorAll(".is-hidden").forEach((element) => {
+      observer.observe(element);
+    });
+  });
+</script>
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -41,5 +65,28 @@ import Landing from "../components/Landing.astro";
   }
   .font-fira {
     font-family: "Fira Code Variable", sans-serif;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animated {
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+  }
+
+  /* El estado inicial del elemento antes de ser animado */
+  .is-hidden {
+    opacity: 0;
+    transform: translateY(20px);
   }
 </style>
