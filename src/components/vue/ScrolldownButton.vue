@@ -7,7 +7,7 @@ const props = defineProps({
 });
 
 const scrollToAbout = () => {
-  const about = document.getElementById('About');
+  const about = document.getElementById('SobreMi');
   about.scrollIntoView({ behavior: 'smooth' });
 };
 
