@@ -3,15 +3,6 @@ import SectionTitle from "./SectionTitle.astro";
 import ProjectCard from "./ProjectCard.astro";
 
 const myProjects = [
-  // {
-  //   name: "Flavor Trail Menú",
-  //   description:
-  //     "Aplicación web para la gestión y visualización de menús de restaurantes. Realizada utilizando el framework Quasar y un backend en Laravel.",
-  //   src: "/img/flavor-trail.jpg",
-  //   href: "http://24.199.98.169/#/",
-  //   technologies: ["Vue", "Quasar", "Pinia", "Laravel"],
-  //   githubUrl: "/",
-  // },
   {
     name: "Egx Ingeniería",
     description:
@@ -20,6 +11,17 @@ const myProjects = [
     href: "https://www.egxingenieria.cl/",
     technologies: ["Astro", "Tailwind"],
     githubUrl: "https://github.com/jorge-castilla/egx-engineer",
+    isPersonal: false,
+  },
+  {
+    name: "Ecomac Ltda.",
+    description:
+      "Sitio web oficial de Inmobiliaria Ecomac en el cual se exponen proyectos inmobiliarios y se gestionan intenciones de compra.",
+    src: "/img/ecomac.jpg",
+    href: "https://www.ecomac.cl/",
+    technologies: ["Laravel", "Vue", "Bootstrap"],
+    githubUrl: null,
+    isPersonal: false,
   },
   {
     name: "Quizzy",
@@ -29,16 +31,18 @@ const myProjects = [
     href: "https://quizzy-quiggle.vercel.app/",
     technologies: ["React", "Redux", "Tailwind"],
     githubUrl: "https://github.com/jorge-castilla/quiz-react",
+    isPersonal: true,
   },
-  {
-    name: "Hero Mixer",
-    description:
-      "Aplicación web desarrollada con la API de ChatGPT y Dall-e para crear nuevos heroes de Dota 2 fusionando heroes actuales.",
-    src: "/img/hero-mixer.jpg",
-    href: "https://hero-mixer.vercel.app/",
-    technologies: ["Vue", "ChatGPT", "Dall-e", "Tailwind"],
-    githubUrl: "https://github.com/jorge-castilla/hero-mixer",
-  },
+  // {
+  //   name: "Hero Mixer",
+  //   description:
+  //     "Aplicación web desarrollada con la API de ChatGPT y Dall-e para crear nuevos heroes de Dota 2 fusionando heroes actuales.",
+  //   src: "/img/hero-mixer.jpg",
+  //   href: "https://hero-mixer.vercel.app/",
+  //   technologies: ["Vue", "ChatGPT", "Dall-e", "Tailwind"],
+  //   githubUrl: "https://github.com/jorge-castilla/hero-mixer",
+  //   isPersonal: true,
+  // },
 ];
 ---
 
@@ -58,6 +62,7 @@ const myProjects = [
           reverse={index % 2 === 0}
           technologies={project.technologies}
           githubUrl={project.githubUrl}
+          isPersonal={project.isPersonal}
         />
       ))
     }
