@@ -11,6 +11,13 @@ const sections = [
   const button = document.querySelector(".burger-button");
   const nav = document.querySelector(".mobile-navbar");
   const navIcon = document.querySelector("#nav-icon3");
+  const links = document.querySelectorAll(".mobile-link");
+  links.forEach((link) => {
+    link.addEventListener("click", () => {
+      nav?.classList.toggle("hidden-right");
+      navIcon?.classList.toggle("open");
+    });
+  });
   button?.addEventListener("click", () => {
     nav?.classList.toggle("hidden-right");
     navIcon?.classList.toggle("open");
