@@ -1,0 +1,41 @@
+---
+const links = [
+  { name: 'Sobre mí', href: '#SobreMi' },
+  { name: 'Proyectos', href: '#Proyectos' },
+  { name: 'Contacto', href: '#Contacto' },
+];
+---
+
+<footer class="py-11 text-sm bg-slate-950 text-slate-600 w-full">
+  <div class="flex flex-col md:flex-row gap-6 md:gap-16 px-4 max-w-xl mx-auto">
+    <div class="text-slate-300">
+      <!-- jorgecastillagallardo@gmail.com, +56965980967, Chile -->
+      <h3 class="h-8 text-lg text-slate-500 font-medium">Contacto</h3>
+      <div>Teléfono: <a href="tel:+56965980967" class="hover:text-sky-400">+569 6598 0967</a></div>
+      <div>
+        Email: <a href="mailto:jorgecastillagallardo@gmail.com"
+        class="hover:text-sky-400"
+          >jorgecastillagallardo@gmail.com</a>
+      </div>
+      <div class="font-medium">Chile</div>
+    </div>
+    <nav>
+      <h3 class="h-8 text-lg font-medium text-slate-500">Secciones</h3>
+      <ul class="mb-3">
+        {
+          links.map((link, index) => (
+            <li class="mx-1.5 text-slate-200">
+              <a
+                href={link.href}
+                class="hover:text-sky-400"
+              >
+                {link.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+  <div class="mt-6 mx-auto w-fit">© 2024 Jorge Castilla</div>
+</footer>

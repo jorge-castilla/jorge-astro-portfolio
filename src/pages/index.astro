@@ -9,10 +9,10 @@ import "@fontsource-variable/fira-code";
 import '@fontsource/italianno';
 import Landing from "../components/Landing.astro";
 import PhoneMenu from "../components/PhoneMenu.astro";
+import BaseFooter from "../components/BaseFooter.astro";
 ---
 
 <script>
-  document.addEventListener("DOMContentLoaded", (event) => {
     const observer = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach((entry) => {
@@ -33,7 +33,6 @@ import PhoneMenu from "../components/PhoneMenu.astro";
     document.querySelectorAll(".is-hidden").forEach((element) => {
       observer.observe(element);
     });
-  });
 </script>
 <html lang="en" class="scroll-smooth">
   <head>
@@ -51,6 +50,7 @@ import PhoneMenu from "../components/PhoneMenu.astro";
       <AboutMe />
       <Projects />
       <Contact />
+      <BaseFooter />
     </main>
   </body>
 </html>
