@@ -1,6 +1,6 @@
 ---
-import { Image } from "astro:assets";
 import SectionTitle from "./SectionTitle.astro";
+import JorgeDeveloperImg from '../assets/img/jorge-developer.webp'
 const paragraphs = ["", "", ""];
 const technologies = [
   "Javascript (ES6+)",
@@ -50,9 +50,9 @@ const technologies = [
     <div
       class="image-container relative w-[300px] aspect-square mx-auto mb-8 is-hidden"
     >
-      <Image
-        src="/img/my-face.jpeg"
-        alt="Foto de Jorge"
+      <img
+        src={JorgeDeveloperImg.src}
+        alt="Retrato de Jorge"
         width={300}
         height={300}
         class="face-image"
